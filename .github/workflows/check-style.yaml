@@ -1,14 +1,10 @@
-name: Checkstyle
-
-on:
-  push:
-    branches: "**"
-    tags-ignore: ["**"]
-  pull_request:
-
 jobs:
   call-check:
+    secrets: inherit
     uses: SpongePowered/.github/.github/workflows/shared-check-style.yaml@master
     with:
       runtime_version: 17
-    secrets: inherit
+name: Checkstyle
+on:
+  repository_dispatch:
+    types: trigger-ga___check-style.yaml
